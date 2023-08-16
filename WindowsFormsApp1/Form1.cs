@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
         private void buttonRead_Click(object sender, EventArgs e)
         {
             // read integer variable
-            Int16 intValueToRead = (Int16)adsClient.ReadSymbol("MAIN.intVar", typeof(Int16), false);
+            Int16 intValueToRead = (Int16)adsClient.ReadSymbol("MAIN.intVar", typeof(Int16), true);
             textBoxIntVar.Text = intValueToRead.ToString();
 
             // read array variable
@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
         {
             // write integer variable
             Int16 intValueToWrite = Int16.Parse(textBoxIntVar.Text);
-            adsClient.WriteSymbol("MAIN.intVar", intValueToWrite, false);
+            adsClient.WriteSymbol("MAIN.intVar", intValueToWrite, true);
 
             // write array variable
             int arrayHandle = adsClient.CreateVariableHandle("MAIN.arrVar");
